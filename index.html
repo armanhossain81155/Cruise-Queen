@@ -62,12 +62,12 @@
             <div class="input-group f-class">
                 <div>
                     <label for="">First Class ($150)</label>
-                    <input id="input-count" class="inp-style inp-width" type="number" name="" value="1">
+                    <input id="input-count" class="inp-style inp-width" type="number" name="" value="0">
                 </div>
                 <div class="plus-minus-btn">
-                    <button class="btn btn-default"><i onclick="handleTicketCount(true);"
+                    <button class="btn btn-default"><i onclick="handleTicketCount1(true);"
                             class="fas fa-plus"></i></button>
-                    <button class="btn btn-default"><i onclick="handleTicketCount(false);"
+                    <button class="btn btn-default"><i onclick="handleTicketCount1(false);"
                             class="fas fa-minus"></i></button>
 
                 </div>
@@ -76,11 +76,13 @@
             <div class="input-group f-class">
                 <div>
                     <label for="">Economy ($100)</label>
-                    <input class="inp-style inp-width" type="number" name="" value="1">
+                    <input id="input-count1" class="inp-style inp-width" type="number" name="" value="0">
                 </div>
                 <div class="plus-minus-btn">
-                    <button class="btn btn-default"><i id="second-class-plus" class="fas fa-plus"></i></button>
-                    <button class="btn btn-default"> <i id="second-class-minus" class="fas fa-minus"></i></button>
+                    <button class="btn btn-default"><i onclick="handleTicketCount2(true);"
+                            class="fas fa-plus"></i></button>
+                    <button class="btn btn-default"> <i onclick="handleTicketCount2(false);"
+                            class="fas fa-minus"></i></button>
                     </p>
                 </div>
             </div>
@@ -90,7 +92,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$ <span id="sub-total">250</span></p>
+                        <p>$ <span id="sub-total">0</span></p>
                     </div>
                 </div>
 
@@ -99,7 +101,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p>$25</p>
+                        <p>$ <span id="tax">0</span></p>
                     </div>
                 </div>
                 <hr>
@@ -108,7 +110,7 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$275</p>
+                        <p>$ <span id="grand-total">0</span></p>
                     </div>
                 </div>
             </div>
@@ -120,37 +122,85 @@
 
     <script>
 
-        function handleTicketCount(isIncrease) {
-            const firstClassPlusInput = document.getElementById("input-count");
-            const increasePlusInput = parseInt(firstClassPlusInput.value);
-            // const plusCount = increasePlusInput - 1;
-            let plusCount = increasePlusInput;
+        function handleTicketCount1(isIncrease) {
+            const firstClassInput = document.getElementById("input-count");
+            const firstClassCount = parseInt(firstClassInput.value);
+            // const numCount = countInput - 1;
+            let numCount = firstClassCount;
             if (isIncrease == true) {
-                plusCount = increasePlusInput + 1;
+                numCount = firstClassCount + 1;
             }
-            if (isIncrease == false && increasePlusInput > 0) {
-                plusCount = increasePlusInput - 1;
+            if (isIncrease == false && firstClassCount > 0) {
+                numCount = firstClassCount - 1;
             }
-            firstClassPlusInput.value = plusCount;
-            const subTotal = plusCount * 250;
-            document.getElementById('sub-total').innerText = subTotal;
+            firstClassInput.value = numCount;
+            const newTotal1 = numCount * 150;
+            calculateTotal();
+
+
+
+
+        }
+        // second part
+
+
+
+        function handleTicketCount2(isIncrease) {
+            const secondClassInput = document.getElementById("input-count1");
+            const secondClassCount = parseInt(secondClassInput.value);
+            // const numCount = countInput - 1;
+            let numCount = secondClassCount;
+            if (isIncrease == true) {
+                numCount = secondClassCount + 1;
+            }
+            if (isIncrease == false && secondClassCount > 0) {
+                numCount = secondClassCount - 1;
+            }
+            secondClassInput.value = numCount;
+            const newTotal2 = numCount * 100;
+            calculateTotal();
+
+
+        }
+        function calculateTotal() {
+            const firstClassInput = document.getElementById("input-count");
+            const firstClassCount = parseInt(firstClassInput.value);
+
+            const secondClassInput = document.getElementById("input-count1");
+            const secondClassCount = parseInt(secondClassInput.value);
+
+
+            const totalPrice = firstClassCount * 150 + secondClassCount * 100;
+            document.getElementById('sub-total').innerText = totalPrice;
+            const tax = Math.round(totalPrice * 0.1);
+            document.getElementById('tax').innerText = tax;
+
+            const grandTotal = totalPrice + tax;
+            document.getElementById('grand-total').innerText = grandTotal;
+
+
+
         }
 
 
+
+
+
+
         // document.getElementById("firstClass-increase").addEventListener('click', function () {
-        //     const firstClassPlusInput = document.getElementById("input-count");
-        //     const increasePlusInput = parseInt(firstClassPlusInput.value);
-        //     const plusCount = increasePlusInput + 1;
-        //     firstClassPlusInput.value = plusCount;
-        //     const subTotal = plusCount * 250;
+        //     const firstClassInput = document.getElementById("input-count");
+        //     const countInput = parseInt(firstClassInput.value);
+        //     const numCount = countInput + 1;
+        //     firstClassInput.value = numCount;
+        //     const subTotal = numCount * 250;
         //     document.getElementById('sub-total').innerText = subTotal;
         // });
         // document.getElementById("firstClass-decrease").addEventListener('click', function () {
-        //     const firstClassPlusInput = document.getElementById("input-count");
-        //     const increasePlusInput = parseInt(firstClassPlusInput.value);
-        //     const plusCount = increasePlusInput - 1;
-        //     firstClassPlusInput.value = plusCount;
-        //     const subTotal = plusCount * 250;
+        //     const firstClassInput = document.getElementById("input-count");
+        //     const countInput = parseInt(firstClassInput.value);
+        //     const numCount = countInput - 1;
+        //     firstClassInput.value = numCount;
+        //     const subTotal = numCount * 250;
         //     document.getElementById('sub-total').innerText = subTotal;
         // });
 
@@ -160,22 +210,7 @@
 
 
 
-    //  document.getElementById("first-class-plus").addEventListener('click', function(){
-    //     const firstClassPlusInput = document.getElementById("input-count");
-    //     const increasePlusInput = parseInt(firstClassPlusInput.value);
-    //     const plusCount = increasePlusInput + 1;
-    //     firstClassPlusInput.value = plusCount;
-    //     const subTotal = plusCount * 250;
-    //     document.getElementById('sub-total').innerText = subTotal;
-    // });
-    // document.getElementById("first-class-minus").addEventListener('click', function(){
-    //     const firstClassPlusInput = document.getElementById("input-count");
-    //     const increasePlusInput = parseInt(firstClassPlusInput.value);
-    //     const plusCount = increasePlusInput - 1;
-    //     firstClassPlusInput.value = plusCount;
-    //     const subTotal = plusCount * 250;
-    //     document.getElementById('sub-total').innerText = subTotal;
-    // });
+
     </script>
 
 
