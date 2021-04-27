@@ -13,110 +13,123 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 
 <body>
-    <!--Header and Menu Section-->
-    <header class="container">
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a class="active" href="#">Sign Up</a></li>
-            </ul>
-        </nav>
-    </header>
+    
+        
 
-    <!--Booking Section-->
-    <main class="main-content container">
-
-        <div class="booking-content">
-            <h1>Cruise Queen</h1>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                scrambled it to make a type specimen book./p>
-        </div>
+        <!--Header and Menu Section-->
+        <header class="container">
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a class="active" href="#">Sign Up</a></li>
+                </ul>
+            </nav>
+        </header>
 
 
-        <div class="booking-form">
-            <h3>Book Ocean Time</h3>
-            <div class="input-group">
-                <label for="">Flying From</label>
-                <input class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
+        <!--Booking Section-->
+        <main id="submit-area" class="main-content container">
+
+
+            <div class="booking-content">
+                <h1>Cruise Queen</h1>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                    and
+                    scrambled it to make a type specimen book./p>
             </div>
-            <div class="input-group">
-                <label for="">Flying To</label>
-                <input class="inp-style" type="text" name="" placeholder="New York, United States">
-            </div>
-            <div class="inputs">
+
+
+            <div class="booking-form">
+                <h3>Book Ocean Time</h3>
                 <div class="input-group">
-                    <label" for="">Departure</label>
+                    <label for="">Flying From</label>
+                    <input class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
+                </div>
+                <div class="input-group">
+                    <label for="">Flying To</label>
+                    <input class="inp-style" type="text" name="" placeholder="New York, United States">
+                </div>
+                <div class="inputs">
+                    <div class="input-group">
+                        <label" for="">Departure</label>
+                            <input class="inp-style" type="date" name="">
+                    </div>
+                    <div class="input-group">
+                        <label for="">Return</label>
                         <input class="inp-style" type="date" name="">
-                </div>
-                <div class="input-group">
-                    <label for="">Return</label>
-                    <input class="inp-style" type="date" name="">
-                </div>
-            </div>
-            <div class="input-group f-class">
-                <div>
-                    <label for="">First Class ($150)</label>
-                    <input id="input-count" class="inp-style inp-width" type="number" name="" value="0">
-                </div>
-                <div class="plus-minus-btn">
-                    <button class="btn btn-default"><i onclick="handleTicketCount1(true);"
-                            class="fas fa-plus"></i></button>
-                    <button class="btn btn-default"><i onclick="handleTicketCount1(false);"
-                            class="fas fa-minus"></i></button>
-
-                </div>
-            </div>
-
-            <div class="input-group f-class">
-                <div>
-                    <label for="">Economy ($100)</label>
-                    <input id="input-count1" class="inp-style inp-width" type="number" name="" value="0">
-                </div>
-                <div class="plus-minus-btn">
-                    <button class="btn btn-default"><i onclick="handleTicketCount2(true);"
-                            class="fas fa-plus"></i></button>
-                    <button class="btn btn-default"> <i onclick="handleTicketCount2(false);"
-                            class="fas fa-minus"></i></button>
-                    </p>
-                </div>
-            </div>
-            <div class="calculations">
-                <div class="amount">
-                    <div class="left">
-                        <p>Subtotal</p>
                     </div>
-                    <div class="right">
-                        <p>$ <span id="sub-total">0</span></p>
+                </div>
+                <div class="input-group f-class">
+                    <div>
+                        <label for="">First Class ($150)</label>
+                        <input id="input-count" class="inp-style inp-width" type="number" name="" value="0">
+                    </div>
+                    <div class="plus-minus-btn">
+                        <button class="btn btn-default"><i onclick="handleTicketCount1(true);"
+                                class="fas fa-plus"></i></button>
+                        <button class="btn btn-default"><i onclick="handleTicketCount1(false);"
+                                class="fas fa-minus"></i></button>
+
                     </div>
                 </div>
 
-                <div class="amount">
-                    <div class="left">
-                        <p>Charge 10% VAT</p>
+                <div class="input-group f-class">
+                    <div>
+                        <label for="">Economy ($100)</label>
+                        <input id="input-count1" class="inp-style inp-width" type="number" name="" value="0">
                     </div>
-                    <div class="right">
-                        <p>$ <span id="tax">0</span></p>
-                    </div>
-                </div>
-                <hr>
-                <div class="amount">
-                    <div class="left">
-                        <h4>Total</h4>
-                    </div>
-                    <div class="right">
-                        <p>$ <span id="grand-total">0</span></p>
+                    <div class="plus-minus-btn">
+                        <button class="btn btn-default"><i onclick="handleTicketCount2(true);"
+                                class="fas fa-plus"></i></button>
+                        <button class="btn btn-default"> <i onclick="handleTicketCount2(false);"
+                                class="fas fa-minus"></i></button>
+                        </p>
                     </div>
                 </div>
+                <div class="calculations">
+                    <div class="amount">
+                        <div class="left">
+                            <p>Subtotal</p>
+                        </div>
+                        <div class="right">
+                            <p>$ <span id="sub-total">0</span></p>
+                        </div>
+                    </div>
+
+                    <div class="amount">
+                        <div class="left">
+                            <p>Charge 10% VAT</p>
+                        </div>
+                        <div class="right">
+                            <p>$ <span id="tax">0</span></p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="amount">
+                        <div class="left">
+                            <h4>Total</h4>
+                        </div>
+                        <div class="right">
+                            <p>$ <span id="grand-total">0</span></p>
+                        </div>
+                    </div>
+                </div>
+                <button id="book-now" class="btn-style">Book Now</button>
             </div>
-            <button class="btn-style">Book Now</button>
-        </div>
-    </main>
+        </main>
+        
+    <div  id="transaction-area">
+        <h1>Your ticket booking is succesfully done.</h1>
+        <h3>Thank you for your confirmation.</h3>
+    </div>
+    
 
 
 
@@ -181,6 +194,16 @@
 
 
         }
+        const submitBtn = document.getElementById("book-now");
+        submitBtn.addEventListener("click", function () {
+            const submitArea = document.getElementById("submit-area");
+            submitArea.style.display = "none";
+           
+            const transactionArea = document.getElementById("transaction-area");
+            transactionArea.style.display = "block";
+            
+            
+        });
 
 
 
